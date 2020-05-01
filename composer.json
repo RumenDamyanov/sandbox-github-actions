@@ -1,0 +1,28 @@
+{
+	"name": "darumen/sandbox",
+	"description": "Testing GitHub Actions",
+	"homepage": "https://darumen.com",
+	"keywords": ["sandbox", "github", "actions", "php", "phpunit", "coveralls"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Rumen Damyanov",
+			"email": "r@alfamatter.com",
+			"role": "Developer",
+			"homepage": "https://darumen.com"
+		}
+	],
+	"require": {
+		"php": ">=7.2.5"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^9.1"
+	},
+	"autoload": {
+		"psr-0": {
+			"Darumen\\Sandbox": "src/"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
