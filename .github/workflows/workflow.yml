@@ -46,3 +46,15 @@ jobs:
         mkdir -p build/logs
         vendor/bin/phpunit tests --coverage-clover build/logs/clover.xml
         vendor/bin/coveralls build/logs/clover.xml
+
+    - name: Upload coverage results to Codeclimate
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      run: |
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
+        vendor/bin/phpunit tests --coverage-clover build/logs/clover.xml
+        ./cc-test-reporter after-build -t clover --exit-code $?
+
+
